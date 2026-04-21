@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgywvuum406xu"]
+
+[ext_resource type="Script" uid="uid://b5ww5xw8muo4c" path="res://barney/swing_animation.gd" id="1_3ee02"]
+
+[node name="SwingAnimation" type="Node" unique_id=1591532605]
+script = ExtResource("1_3ee02")

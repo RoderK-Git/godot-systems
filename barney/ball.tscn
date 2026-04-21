@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2vnde51u8r1f"]
+
+[ext_resource type="Script" uid="uid://doy2umgfc03ga" path="res://barney/ball.gd" id="1_8p2xv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_vfnef"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47ksi"]
+albedo_color = Color(0, 0.7384981, 0.11648115, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j4iur"]
+radius = 0.25
+
+[node name="Ball" type="StaticBody3D" unique_id=1659440953]
+script = ExtResource("1_8p2xv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=939477855]
+mesh = SubResource("SphereMesh_vfnef")
+surface_material_override/0 = SubResource("StandardMaterial3D_47ksi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=110685189]
+shape = SubResource("SphereShape3D_j4iur")

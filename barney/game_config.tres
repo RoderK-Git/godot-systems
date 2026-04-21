@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://g0x7ubyi82ye"]
+
+[ext_resource type="Script" uid="uid://c2vel65yww66h" path="res://barney/game_config.gd" id="1_3ivou"]
+
+[resource]
+script = ExtResource("1_3ivou")
+metadata/_custom_type_script = "uid://c2vel65yww66h"

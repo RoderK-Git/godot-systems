@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://djsgl8w7qmoyc"]
+
+[ext_resource type="PackedScene" uid="uid://dpqancvrx5p4n" path="res://barney/player_controller.tscn" id="2_vfnef"]
+[ext_resource type="PackedScene" uid="uid://bgywvuum406xu" path="res://barney/swing_animation.tscn" id="3_60kqx"]
+[ext_resource type="PackedScene" uid="uid://5px56olauvyc" path="res://barney/hit_controller.tscn" id="4_4egiv"]
+[ext_resource type="PackedScene" uid="uid://c2vnde51u8r1f" path="res://barney/ball.tscn" id="4_47ksi"]
+[ext_resource type="PackedScene" uid="uid://dm8qcw2v1rshr" path="res://barney/barney.tscn" id="5_eia13"]
+[ext_resource type="PackedScene" uid="uid://b1gjp88o65b4b" path="res://barney/aim_assistant.tscn" id="5_sn7ya"]
+[ext_resource type="PackedScene" uid="uid://bt8wcnnhug0r0" path="res://barney/aim_controller.tscn" id="6_sn7ya"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vfnef"]
+
+[sub_resource type="Sky" id="Sky_60kqx"]
+sky_material = SubResource("PanoramaSkyMaterial_vfnef")
+
+[sub_resource type="Environment" id="Environment_vfnef"]
+background_mode = 1
+background_color = Color(0.20279999, 0.32439327, 0.52, 1)
+background_energy_multiplier = 2.94
+sky = SubResource("Sky_60kqx")
+ambient_light_color = Color(0.66, 0.45100003, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vy583"]
+size = Vector3(20, 0.5, 30)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vfnef"]
+albedo_color = Color(0.90206414, 0.7514624, 0.738914, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60kqx"]
+size = Vector3(20, 0.5, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_47ksi"]
+size = Vector3(20, 6, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4egiv"]
+albedo_color = Color(0.089972295, 0.3489245, 0.86763746, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eia13"]
+size = Vector3(20, 6, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vfnef"]
+size = Vector3(0.5, 6, 25)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vy583"]
+albedo_color = Color(0.81933856, 0.81794935, 0.9745254, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_47ksi"]
+size = Vector3(0.5, 6, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60kqx"]
+albedo_color = Color(0.81933856, 0.81794935, 0.9745254, 1)
+
+[node name="Demo" type="Node3D" unique_id=1680895805]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=801699476]
+environment = SubResource("Environment_vfnef")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1230152287]
+transform = Transform3D(0.97011405, 0.061584927, 0.23470406, -0.235762, 0.46804538, 0.8516747, -0.05740181, -0.881556, 0.46857676, 2.8446732, 5.9584174, 5.4569006)
+shadow_enabled = true
+
+[node name="Level" type="Node" parent="." unique_id=1454128701]
+
+[node name="Floor" type="StaticBody3D" parent="Level" unique_id=174787922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Floor" unique_id=372385049]
+mesh = SubResource("BoxMesh_vy583")
+surface_material_override/0 = SubResource("StandardMaterial3D_vfnef")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Floor" unique_id=1641632088]
+shape = SubResource("BoxShape3D_60kqx")
+
+[node name="Backwall" type="StaticBody3D" parent="Level" unique_id=299532121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -12)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Backwall" unique_id=1492217469]
+mesh = SubResource("BoxMesh_47ksi")
+surface_material_override/0 = SubResource("StandardMaterial3D_4egiv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/Backwall" unique_id=1859854496]
+shape = SubResource("BoxShape3D_eia13")
+
+[node name="WallLeft" type="StaticBody3D" parent="Level" unique_id=1557406583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/WallLeft" unique_id=1674013404]
+mesh = SubResource("BoxMesh_vfnef")
+surface_material_override/0 = SubResource("StandardMaterial3D_vy583")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/WallLeft" unique_id=1479835380]
+shape = SubResource("BoxShape3D_47ksi")
+
+[node name="WallRight" type="StaticBody3D" parent="Level" unique_id=2066401893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/WallRight" unique_id=1661486183]
+mesh = SubResource("BoxMesh_vfnef")
+surface_material_override/0 = SubResource("StandardMaterial3D_60kqx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level/WallRight" unique_id=972701356]
+shape = SubResource("BoxShape3D_47ksi")
+
+[node name="Barney" parent="." unique_id=1686079435 node_paths=PackedStringArray("hit_controller") instance=ExtResource("5_eia13")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+hit_controller = NodePath("../Controllers/HitController")
+
+[node name="Camera3D" type="Camera3D" parent="Barney" unique_id=970886778]
+transform = Transform3D(1, 0, 0, 0, 0.9748935, 0.22267166, 0, -0.22267166, 0.9748935, 0.439, 3.0640001, 4.418)
+
+[node name="AimAssistant" parent="." unique_id=657542635 instance=ExtResource("5_sn7ya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.081, 0)
+
+[node name="Controllers" type="Node" parent="." unique_id=2099415231]
+
+[node name="PlayerController" parent="Controllers" unique_id=502861189 node_paths=PackedStringArray("player") instance=ExtResource("2_vfnef")]
+player = NodePath("../../Barney")
+
+[node name="SwingAnimation" parent="Controllers" unique_id=1591532605 node_paths=PackedStringArray("monitor", "bat_center", "bat_hand") instance=ExtResource("3_60kqx")]
+monitor = NodePath("../../Barney/BatCenter/BatHand/BatHit")
+bat_center = NodePath("../../Barney/BatCenter")
+bat_hand = NodePath("../../Barney/BatCenter/BatHand")
+
+[node name="HitController" parent="Controllers" unique_id=1502149778 node_paths=PackedStringArray("player_controller", "swing_animation", "aim_controller") instance=ExtResource("4_4egiv")]
+player_controller = NodePath("../PlayerController")
+swing_animation = NodePath("../SwingAnimation")
+aim_controller = NodePath("../AimController")
+
+[node name="AimController" parent="Controllers" unique_id=1568222618 node_paths=PackedStringArray("aim_assistant") instance=ExtResource("6_sn7ya")]
+aim_assistant = NodePath("../../AimAssistant")
+max_aim_angle_x = null
+max_aim_angle_y = null
+
+[node name="Ball" parent="." unique_id=1659440953 instance=ExtResource("4_47ksi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1.081, 0)
+
+[connection signal="shot" from="Controllers/PlayerController" to="Controllers/SwingAnimation" method="_on_player_controller_shot"]
+[connection signal="shot" from="Controllers/PlayerController" to="Controllers/AimController" method="_on_player_controller_shot"]
+[connection signal="wound_up" from="Controllers/PlayerController" to="Controllers/AimController" method="_on_player_controller_wound_up"]

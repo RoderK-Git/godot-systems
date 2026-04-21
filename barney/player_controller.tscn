@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dpqancvrx5p4n"]
+
+[ext_resource type="Script" uid="uid://c035iyjp07eq1" path="res://barney/player_controller.gd" id="1_dymh7"]
+
+[node name="PlayerController" type="Node" unique_id=502861189]
+script = ExtResource("1_dymh7")

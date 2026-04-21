@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5px56olauvyc"]
+
+[ext_resource type="Script" uid="uid://cdghrisw4pudt" path="res://barney/hit_controller.gd" id="1_vt5a1"]
+
+[node name="HitController" type="Node" unique_id=1502149778]
+script = ExtResource("1_vt5a1")
